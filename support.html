@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ZSecurity - 24/7 Command Support</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&amp;family=JetBrains+Mono:wght@500&amp;family=Roboto+Flex:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#222a3d",
+                    "on-primary-fixed": "#002022",
+                    "secondary-container": "#34ff8d",
+                    "on-tertiary": "#3b2f00",
+                    "inverse-on-surface": "#283044",
+                    "tertiary-fixed-dim": "#e8c423",
+                    "on-surface-variant": "#b9cacb",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary-container": "#007239",
+                    "primary": "#e1fdff",
+                    "on-secondary-fixed-variant": "#005228",
+                    "secondary-fixed": "#60ff99",
+                    "on-primary-container": "#006a71",
+                    "surface-container": "#171f33",
+                    "on-surface": "#dae2fd",
+                    "secondary": "#f5fff3",
+                    "surface-container-highest": "#2d3449",
+                    "surface-bright": "#31394d",
+                    "primary-container": "#00f2ff",
+                    "background": "#0b1326",
+                    "on-tertiary-container": "#725e00",
+                    "on-background": "#dae2fd",
+                    "outline": "#849495",
+                    "on-tertiary-fixed-variant": "#554500",
+                    "primary-fixed": "#74f5ff",
+                    "on-secondary-fixed": "#00210c",
+                    "surface-variant": "#2d3449",
+                    "primary-fixed-dim": "#00dbe7",
+                    "on-primary": "#00363a",
+                    "inverse-surface": "#dae2fd",
+                    "tertiary-container": "#fed83a",
+                    "surface-container-lowest": "#060e20",
+                    "on-error": "#690005",
+                    "error-container": "#93000a",
+                    "surface": "#0b1326",
+                    "on-tertiary-fixed": "#221b00",
+                    "surface-dim": "#0b1326",
+                    "outline-variant": "#3a494b",
+                    "surface-container-low": "#131b2e",
+                    "on-secondary": "#003919",
+                    "surface-tint": "#00dbe7",
+                    "on-primary-fixed-variant": "#004f54",
+                    "error": "#ffb4ab",
+                    "tertiary-fixed": "#ffe173",
+                    "tertiary": "#fff6e4",
+                    "secondary-fixed-dim": "#00e479",
+                    "inverse-primary": "#00696f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "margin-desktop": "80px",
+                    "container-max": "1440px",
+                    "gutter": "24px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "label-sm": ["JetBrains Mono"],
+                    "headline-md": ["Montserrat"],
+                    "body-md": ["Roboto Flex"],
+                    "display-lg": ["Montserrat"],
+                    "body-lg": ["Roboto Flex"],
+                    "display-lg-mobile": ["Montserrat"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+            },
+            "keyframes": {
+              'fade-up': {
+                '0%': { opacity: '0', transform: 'translateY(40px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              'float': {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              },
+              'scan': {
+                  '0%': { transform: 'translateY(-100vh)' },
+                  '100%': { transform: 'translateY(100vh)' }
+              }
+            },
+            "animation": {
+              'fade-up': 'fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards',
+              'float': 'float 6s ease-in-out infinite',
+              'scan': 'scan 8s linear infinite',
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(11, 19, 38, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            border-left: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .liquid-glow {
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-cyber-gradient {
+            background: radial-gradient(circle at 0% 0%, rgba(0, 242, 255, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 100% 100%, rgba(52, 255, 141, 0.05) 0%, transparent 50%);
+        }
+        
+        /* Scroll Animation Classes */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        /* HUD Scanner */
+        .scanner-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(to bottom, transparent, rgba(0, 242, 255, 0.1) 50%, rgba(0, 242, 255, 0.4) 100%);
+            border-bottom: 1px solid rgba(0, 242, 255, 0.5);
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-[16px] border-b border-white/10 shadow-2xl">
+<div class="flex items-center justify-between px-margin-mobile h-16 w-full max-w-container-max mx-auto">
+<div class="flex items-center gap-3">
+<a href="code.html" class="flex items-center gap-3">
+    <span class="material-symbols-outlined text-primary-container" data-icon="menu">menu</span>
+    <h1 class="font-headline-md text-headline-md font-bold tracking-tighter text-primary-container drop-shadow-[0_0_10px_rgba(0,242,255,0.5)]">ZSECURITY</h1>
+</a>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<nav class="flex gap-6">
+<a class="text-on-surface-variant font-label-sm text-label-sm transition-colors duration-300 hover:text-primary" href="code.html">Home</a>
+<a class="text-on-surface-variant font-label-sm text-label-sm transition-colors duration-300 hover:text-primary" href="#">Products</a>
+<a class="text-primary-container font-label-sm text-label-sm transition-colors duration-300 hover:text-primary" href="support.html">Support</a>
+</nav>
+<span class="material-symbols-outlined text-primary-container" data-icon="security">security</span>
+</div>
+<div class="md:hidden">
+<span class="material-symbols-outlined text-primary-container" data-icon="security">security</span>
+</div>
+</div>
+</header>
+
+<main class="relative pt-16 min-h-screen bg-cyber-gradient overflow-hidden pb-32">
+<!-- Hero Section -->
+<section class="relative py-24 px-margin-mobile text-center">
+<div class="absolute inset-0 z-0 opacity-20 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary-container via-background to-background"></div>
+<div class="relative z-20 max-w-3xl mx-auto animate-fade-up">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-container/10 border border-primary-container/20 text-primary-container mb-6">
+        <span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+        <span class="font-label-sm text-label-sm">24/7 COMMAND SUPPORT</span>
+    </div>
+    <h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-white mb-6 leading-tight">
+        How can we <span class="text-primary-container">assist</span> you today?
+    </h2>
+    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mx-auto">
+        Direct access to our security specialists for immediate tactical assistance, troubleshooting, and system maintenance.
+    </p>
+</div>
+</section>
+
+<!-- Contact Channels -->
+<section class="py-12 px-margin-mobile max-w-container-max mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- WhatsApp -->
+        <a href="https://wa.me/919557734358" target="_blank" class="glass-panel p-8 rounded-xl flex flex-col items-center text-center group hover:border-secondary-container/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(52,255,141,0.1)] animate-on-scroll delay-100">
+            <div class="w-16 h-16 rounded-full bg-secondary-container/10 flex items-center justify-center mb-6 group-hover:bg-secondary-container/20 transition-colors">
+                <span class="material-symbols-outlined text-4xl text-secondary-container" data-icon="forum">forum</span>
+            </div>
+            <h3 class="font-headline-md text-xl text-white mb-2">WhatsApp Support</h3>
+            <p class="text-on-surface-variant mb-4">Instant messaging with our technical team. Average response time: < 2 mins.</p>
+            <span class="text-secondary-container font-bold text-lg mt-auto">+91 9557734358</span>
+        </a>
+        
+        <!-- Phone -->
+        <a href="tel:+919557734358" class="glass-panel p-8 rounded-xl flex flex-col items-center text-center group hover:border-primary-container/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(0,242,255,0.1)] animate-on-scroll delay-200">
+            <div class="w-16 h-16 rounded-full bg-primary-container/10 flex items-center justify-center mb-6 group-hover:bg-primary-container/20 transition-colors">
+                <span class="material-symbols-outlined text-4xl text-primary-container" data-icon="call">call</span>
+            </div>
+            <h3 class="font-headline-md text-xl text-white mb-2">Emergency Hotline</h3>
+            <p class="text-on-surface-variant mb-4">For immediate security breaches or critical system failures.</p>
+            <span class="text-primary-container font-bold text-lg mt-auto">+91 9557734358</span>
+        </a>
+
+        <!-- Email -->
+        <a href="mailto:support@zsecurity.com" class="glass-panel p-8 rounded-xl flex flex-col items-center text-center group hover:border-white/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(255,255,255,0.05)] animate-on-scroll delay-300">
+            <div class="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mb-6 group-hover:bg-white/10 transition-colors">
+                <span class="material-symbols-outlined text-4xl text-white" data-icon="mail">mail</span>
+            </div>
+            <h3 class="font-headline-md text-xl text-white mb-2">Email Desk</h3>
+            <p class="text-on-surface-variant mb-4">Detailed inquiries, warranty claims, and non-urgent support requests.</p>
+            <span class="text-white font-bold mt-auto">support@zsecurity.com</span>
+        </a>
+    </div>
+</section>
+
+<!-- Submit a Ticket & FAQs -->
+<section class="py-24 px-margin-mobile max-w-container-max mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        
+        <!-- Support Form -->
+        <div class="glass-panel p-8 md:p-10 rounded-2xl animate-on-scroll border-l-4 border-l-primary-container">
+            <h3 class="font-headline-md text-2xl text-white mb-2">Open a Support Ticket</h3>
+            <p class="text-on-surface-variant mb-8">Our engineers will diagnose your system remotely and dispatch a team if necessary.</p>
+            
+            <form class="space-y-6">
+                <div>
+                    <label class="block text-label-sm font-label-sm text-primary-container mb-2">SYSTEM ID / LOCATION</label>
+                    <input type="text" class="w-full bg-surface-container-high border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all placeholder:text-white/20" placeholder="e.g. FZD-HQ-01">
+                </div>
+                <div>
+                    <label class="block text-label-sm font-label-sm text-primary-container mb-2">ISSUE CATEGORY</label>
+                    <select class="w-full bg-surface-container-high border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all appearance-none">
+                        <option>Camera Offline / No Signal</option>
+                        <option>AI Detection Not Working</option>
+                        <option>Cloud Recording Access</option>
+                        <option>Hardware Replacement</option>
+                        <option>Other System Fault</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-label-sm font-label-sm text-primary-container mb-2">DIAGNOSTIC DETAILS</label>
+                    <textarea rows="4" class="w-full bg-surface-container-high border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all placeholder:text-white/20" placeholder="Describe the behavior of the system..."></textarea>
+                </div>
+                <button type="button" class="w-full py-4 bg-primary-container text-on-primary-container font-bold rounded-lg shadow-[0_0_20px_rgba(0,242,255,0.3)] hover:scale-[1.02] transition-transform duration-300 flex items-center justify-center gap-2">
+                    <span class="material-symbols-outlined" data-icon="send">send</span>
+                    TRANSMIT DIAGNOSTIC
+                </button>
+            </form>
+        </div>
+
+        <!-- FAQs -->
+        <div class="animate-on-scroll delay-200 flex flex-col justify-center">
+            <h3 class="font-headline-md text-3xl text-white mb-8">Common Inquiries</h3>
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <details class="glass-panel rounded-xl group overflow-hidden" open>
+                    <summary class="px-6 py-5 cursor-pointer font-bold text-white flex justify-between items-center group-hover:bg-white/5 transition-colors">
+                        How do I access my cloud recordings?
+                        <span class="material-symbols-outlined text-primary-container group-open:rotate-180 transition-transform" data-icon="expand_more">expand_more</span>
+                    </summary>
+                    <div class="px-6 pb-6 text-on-surface-variant border-t border-white/10 pt-4">
+                        You can access up to 30 days of encrypted footage via the ZSecurity Mobile App or the Web Portal using your authorized Master Credentials. If you are locked out, contact the emergency hotline.
+                    </div>
+                </details>
+                <!-- FAQ 2 -->
+                <details class="glass-panel rounded-xl group overflow-hidden">
+                    <summary class="px-6 py-5 cursor-pointer font-bold text-white flex justify-between items-center group-hover:bg-white/5 transition-colors">
+                        What happens during a power outage?
+                        <span class="material-symbols-outlined text-primary-container group-open:rotate-180 transition-transform" data-icon="expand_more">expand_more</span>
+                    </summary>
+                    <div class="px-6 pb-6 text-on-surface-variant border-t border-white/10 pt-4">
+                        Our enterprise nodes are equipped with UPS backup systems that maintain recording and AI functionality for up to 12 hours. The system will alert you via SMS the moment main power drops.
+                    </div>
+                </details>
+                <!-- FAQ 3 -->
+                <details class="glass-panel rounded-xl group overflow-hidden">
+                    <summary class="px-6 py-5 cursor-pointer font-bold text-white flex justify-between items-center group-hover:bg-white/5 transition-colors">
+                        Can I upgrade my AI detection modules?
+                        <span class="material-symbols-outlined text-primary-container group-open:rotate-180 transition-transform" data-icon="expand_more">expand_more</span>
+                    </summary>
+                    <div class="px-6 pb-6 text-on-surface-variant border-t border-white/10 pt-4">
+                        Yes, facial recognition, license plate reading, and thermal threat detection can be added to compatible V4 Ghost Eye cameras via a remote firmware deployment. Contact the sales desk to provision the upgrade.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-surface-container/40 backdrop-blur-[24px] border-t border-white/10 rounded-t-full shadow-[0_-10px_30px_rgba(0,0,0,0.5)] py-3 px-2 flex justify-around items-center">
+<!-- Home -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-secondary transition-all scale-95 active:scale-90 duration-300" href="code.html">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm mt-1">Home</span>
+</a>
+<!-- Products -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-secondary transition-all scale-95 active:scale-90 duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="videocam">videocam</span>
+<span class="font-label-sm text-label-sm mt-1">Products</span>
+</a>
+<!-- Appointment -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-secondary transition-all scale-95 active:scale-90 duration-300" href="appointment.html">
+<span class="material-symbols-outlined" data-icon="event_available">event_available</span>
+<span class="font-label-sm text-label-sm mt-1">Book</span>
+</a>
+<!-- Support (Active) -->
+<a class="flex flex-col items-center justify-center text-primary-container bg-primary-container/10 rounded-full px-4 py-1 shadow-[0_0_15px_rgba(0,242,255,0.3)] scale-95 active:scale-90 transition-transform duration-300" href="support.html">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+<span class="font-label-sm text-label-sm mt-1">Support</span>
+</a>
+</nav>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+            observer.observe(el);
+        });
+    });
+</script>
+</body></html>
